@@ -7,7 +7,7 @@ const LeavePage = require('../pages/LeavePage');
 test('Regression test on OrangeHRM', async ({ page }) => {
     const landingPage = new LandingPage(page);
     await landingPage.gotoLandingPage();
-    await landingPage.doLogin(process.env.LOGIN_USERNAME, process.env.LOGIN_PASSWORD);
+    await landingPage.doLogin(process.env.LOGIN_USERNAME || 'Admin', process.env.LOGIN_PASSWORD || 'admin123');
     const dashboardPage = new DashboardPage(page);
     // Note: leave page is not always displayed
     await dashboardPage.gotoLeavePage();

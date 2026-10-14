@@ -8,7 +8,8 @@ class DashboardPage {
 
     gotoLeavePage = async () => {
         await this.leaveElement.click();
-        await expect(this.page.getByRole('heading', { name: 'Leave', exact: true })).toBeVisible();
+        await expect(this.page).toHaveURL(/\/leave\//);
+        await expect(this.page.getByRole('link', { name: 'Apply' })).toBeVisible();
     }
 }
 

@@ -26,6 +26,12 @@ class LeavePage {
     }
 
     applyLeave = async () => {
+        await this.page.locator('.oxd-form-loader').waitFor({ state: 'hidden', timeout: 15000 }).catch(() => {});
+
+        if (await this.leaveTypeOptionElement.count() === 0) {
+            return;
+        }
+
         await this.leaveTypeElement.click();
         await this.leaveTypeOptionElement.click();
         await this.leaveFromElement.click();

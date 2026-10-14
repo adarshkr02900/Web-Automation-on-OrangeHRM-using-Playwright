@@ -3,7 +3,7 @@ const { expect } = require('@playwright/test');
 class LandingPage {
     constructor(page) {
         this.page = page;
-        this.landingPageUrl = process.env.LANDING_PAGE_URL;
+        this.landingPageUrl = process.env.LANDING_PAGE_URL || 'https://opensource-demo.orangehrmlive.com';
         this.userNameElement = page.getByPlaceholder("Username");
         this.passwordElement = page.getByPlaceholder("Password");
         this.loginButtonElement = page.getByRole("button", { name: "Login" });
